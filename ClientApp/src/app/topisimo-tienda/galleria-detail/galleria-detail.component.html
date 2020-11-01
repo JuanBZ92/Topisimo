@@ -1,0 +1,45 @@
+<p-galleria [(value)]="data.data" [circular]="true" [containerStyle]="{'max-width': '1500px','margin-top': '10em', 'margin-right': '6%'}"
+    [responsiveOptions]="responsiveOptions" [numVisible]="5" thumbnailsPosition="top">
+    
+    <ng-template pTemplate="thumbnail" let-item>
+        <div [ngStyle]="{'display':isLoading ? 'none' : 'flex'}" (click)="changeGroup(item)" class="p-grid p-nogutter p-justify-center">
+            <img [src]="item.thumbnailImageSrc" class="thumbImages" style="display: block;" />
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="item" let-item>
+        <div [ngStyle]="{'display':isLoading ? 'none' : 'flex'}" class="miniThumbnails">
+            <div (click)="mainImage(img)" class="miniImages" *ngFor="let img of subData?.data?.slice(0,6)">
+                <img [src]="img.thumbnailImageSrc" class="minithumbImages" style="display: block;" />
+            </div>
+        </div>
+        <div class="mainImageContainer">
+            <img id="mainImageImage" (load)="imageLoaded(item)" #mainImageImage [src]="item.previewImageSrc" style="display: block;" />
+        </div>
+        <div [ngStyle]="{'display':isLoading ? 'none' : 'flex'}" class="leyenda">
+            <h2>{{nombre}}</h2>
+            <h3>{{material}}</h3>
+            <div class="desciptionItem">
+                <span>{{desciption}}</span>
+            </div>
+            <div class="configSize">
+                <div>
+                    <input matInput type="radio" (click)="medidas = '85'" [checked]="medidas === '85'"><span>85</span>
+                    <input matInput type="radio" (click)="medidas = '90'" [checked]="medidas === '90'"><span>90</span>
+                    <input matInput type="radio" (click)="medidas = '95'" [checked]="medidas === '95'"><span>95</span>
+                </div>
+                <div>
+                    <input matInput type="radio" (click)="size = 'S'" [checked]="size === 'S'"><span>S</span>
+                    <input matInput type="radio" (click)="size = 'M'" [checked]="size === 'M'"><span>M</span>
+                    <input matInput type="radio" (click)="size = 'L'" [checked]="size === 'L'"><span>L</span>
+                </div>
+            </div>
+            <div class="footer">
+                <button mat-raised-button color="primary" [disabled]="!(size && medidas)" (click)="sendEmail(item)">Quiero!</button>
+            </div>
+        </div>
+    </ng-template>
+</p-galleria>
+
+<app-modal #modal>
+</app-modal>

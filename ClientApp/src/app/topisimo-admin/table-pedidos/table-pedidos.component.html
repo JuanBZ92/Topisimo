@@ -1,0 +1,90 @@
+<div>
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
+    <button mat-raised-button class="b_addpedido" (click)="abrirModalAgregarPedido()" color="primary">Agregar Pedido</button>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+            <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="cliente">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </th>
+            <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="modelo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Modelo </th>
+            <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="color">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>
+            <td mat-cell *matCellDef="let element"> {{element.color}} </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="costo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Costo </th>
+            <td mat-cell *matCellDef="let element"> {{element.costo}} </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="peso">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Peso </th>
+            <td mat-cell *matCellDef="let element"> {{element.peso}} </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="busto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Busto </th>
+            <td mat-cell *matCellDef="let element"> {{element.busto}} </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="bajoBusto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Bajo Busto </th>
+            <td mat-cell *matCellDef="let element"> {{element.bajoBusto}} </td>
+        </ng-container>
+        <ng-container matColumnDef="tasa">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Tasa </th>
+            <td mat-cell *matCellDef="let element"> {{element.tasa}} </td>
+        </ng-container>
+        <ng-container matColumnDef="cintura">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cintura </th>
+            <td mat-cell *matCellDef="let element"> {{element.cintura}} </td>
+        </ng-container>
+        <ng-container matColumnDef="precio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
+            <td mat-cell *matCellDef="let element"> {{element.precio}} </td>
+        </ng-container>
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+        </ng-container>
+        <ng-container matColumnDef="notas">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Notas </th>
+            <td mat-cell *matCellDef="let element"> {{element.notas}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="pedidos.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        (page)="pageChange($event)">
+    </mat-paginator>
+</div>
+
+<app-modal #modal (guardarPedido)="guardarPedido($event)">
+</app-modal>

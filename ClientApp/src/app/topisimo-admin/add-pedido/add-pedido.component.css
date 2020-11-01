@@ -1,0 +1,17 @@
+.form {
+    width: 100%;
+}
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    padding-right: 1%;
+}
+.medidas.mat-form-field {
+    width: 20%;
+    padding-right: 2.5%;
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 99999 !important;
+ }

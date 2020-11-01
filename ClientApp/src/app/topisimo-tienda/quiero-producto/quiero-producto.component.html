@@ -1,0 +1,24 @@
+<form [formGroup]="quieroProductoForm" class="form">
+
+    <div class="container">
+        <div class="header">
+            <h1>QUIERO MI TOP</h1>
+            <h3>Completá tus datos para que te contacte y armemos el top de tus sueños.</h3>
+        </div>
+        <div class="body">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre">
+
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+
+            <mat-label>Telefono</mat-label>
+            <input matInput formControlName="telefono">
+
+        </div>
+        <div class="footer">
+            <button mat-raised-button color="primary" (click)="sendEmail()">Quiero!</button>
+            <button mat-raised-button color="secondary" (click)="activeModal.dismiss('cancelado')">Cancelar</button>
+        </div>
+    </div>
+</form>

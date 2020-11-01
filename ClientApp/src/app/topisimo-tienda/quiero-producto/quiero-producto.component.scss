@@ -1,0 +1,29 @@
+.header {
+    padding-top: 3%;
+    padding-left: 3%;
+}
+.body {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    align-items: baseline;
+    mat-label {
+        margin-right: 1%;
+    }
+    input {
+        margin-right: 1%;
+    }
+}
+.footer { 
+    margin-top: 5%;
+    padding-bottom: 5%;
+    display: flex;
+    justify-content: flex-end;
+    button {
+        float: right;
+        margin-right: 6%;
+    }
+}
+form {
+    background-color: #faebd769;
+}

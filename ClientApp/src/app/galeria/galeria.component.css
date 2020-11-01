@@ -1,0 +1,9 @@
+.containerCarousel {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+.carousel {
+    width: fit-content;
+    margin: 0 auto;
+}

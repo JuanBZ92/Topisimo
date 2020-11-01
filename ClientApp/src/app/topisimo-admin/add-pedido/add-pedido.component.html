@@ -1,0 +1,79 @@
+<form [formGroup]="agregarPedidoForm" class="form">
+
+    <div class="modal-body">
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha</mat-label>
+                <input matInput formControlName="fecha">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Cliente</mat-label>
+                <input matInput formControlName="cliente">
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Modelo</mat-label>
+                <input matInput formControlName="modelo">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Color</mat-label>
+                <input matInput formControlName="color">
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Peso</mat-label>
+                <input matInput formControlName="peso">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Costo</mat-label>
+                <input matInput formControlName="costo">
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field class="medidas" appearance="fill">
+                <mat-label>Busto</mat-label>
+                <input matInput formControlName="busto">
+            </mat-form-field>
+            <mat-form-field class="medidas" appearance="fill">
+                <mat-label>Bajo Busto</mat-label>
+                <input matInput formControlName="bajoBusto">
+            </mat-form-field>
+            <mat-form-field class="medidas" appearance="fill">
+                <mat-label>Taza</mat-label>
+                <input matInput formControlName="tasa">
+            </mat-form-field>
+            <mat-form-field class="medidas" appearance="fill">
+                <mat-label>Cintura</mat-label>
+                <input matInput formControlName="cintura">
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Precio</mat-label>
+                <input matInput formControlName="precio">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Estado</mat-label>
+                <mat-select name="estado" formControlName="estado">
+                    <mat-option *ngFor="let estado of estados" [value]="estado.value">
+                        {{estado.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Notas</mat-label>
+                <input matInput formControlName="notas">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="example-container">
+            <button mat-raised-button (click)="guardarPedido()" color="primary">Guardar Pedido</button>
+            <button mat-raised-button (click)="activeModal.dismiss('cancelado')" color="primary">Cancelar Pedido</button>
+        </div>
+    </div>
+</form>
