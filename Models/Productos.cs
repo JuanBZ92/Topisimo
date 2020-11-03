@@ -13,6 +13,7 @@ namespace Topisimo.Models
         public int Partes { get; set; }
         public bool Conjunto { get; set; }
         public Categoria Categoria { get; set; }
+        public string Description { get; set; }
     }
 
     public enum Categoria

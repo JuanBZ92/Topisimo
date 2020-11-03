@@ -11,6 +11,7 @@ export interface Productos {
   partes: number;
   conjunto: boolean;
   imagePaths: string[];
+  description: string;
 }
 
 export interface QuieroProducto { 
@@ -105,6 +106,7 @@ export class GalleriaDetailComponent implements OnInit, AfterViewInit {
         previewImageSrc: x.imagePaths.find(x => x.includes('fondo')).split('dist')[1],
         thumbnailImageSrc: x.imagePaths.find(x => x.includes('fondo')).split('dist')[1],
         alt: x.anio,
+        description: x.description,
         title: x.modelo
       }))
     };
@@ -114,11 +116,13 @@ export class GalleriaDetailComponent implements OnInit, AfterViewInit {
         previewImageSrc: x.split('dist')[1],
         thumbnailImageSrc: x.split('dist')[1],
         alt: this.imagesPosta[0].anio,
+        description: this.imagesPosta[0].description,
         title: this.imagesPosta[0].modelo
       }))
     }
     this.nombre = this.imagesPosta[0].modelo;
     this.material = this.imagesPosta[0].anio;
+    this.descripcion = this.imagesPosta[0].description;
     this.maxmove = (((150 * this.data.data.length) * 100) / 1200) * -1;
     console.log(this.maxmove);
   }
@@ -159,7 +163,7 @@ export class GalleriaDetailComponent implements OnInit, AfterViewInit {
     //}, 2000);
     this.nombre = event.title;
     this.material = event.alt;
-
+    this.descripcion = event.description;
   }
 
   // ngAfterViewChecked() {

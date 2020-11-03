@@ -10,6 +10,7 @@ namespace Topisimo.DTO
     {
         public string Modelo { get; set; }
         public string Path { get; set; }
+        public string Description { get; set; }
         public int Anio { get; set; }
         public int Partes { get; set; }
         public bool Conjunto { get; set; }

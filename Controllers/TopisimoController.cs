@@ -67,6 +67,7 @@ namespace Topisimo.Controllers
                 productosDTO.Conjunto = pr.Conjunto;
                 productosDTO.Modelo = pr.Modelo;
                 productosDTO.Path = pr.Path;
+                productosDTO.Description = pr.Description;
                 string[] dirFiles;
                 var dir = Directory.GetCurrentDirectory();
                 if (Directory.Exists(dir + pr.Path + @"\" + pr.Modelo.Replace(" ", string.Empty)))
