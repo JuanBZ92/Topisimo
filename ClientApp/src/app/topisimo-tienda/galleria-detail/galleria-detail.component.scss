@@ -96,6 +96,10 @@
 }
 .desciptionItem {
     width: 300px;
+    display: flex;
+    min-height: 50%;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .configSize {
     border-top: solid black 1px;
@@ -152,6 +156,7 @@
     position: absolute;
     margin-right: 37%;
     display: flex;
+    top: 450px;
 }
 
 .miniImages {
