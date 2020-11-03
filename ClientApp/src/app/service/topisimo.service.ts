@@ -21,7 +21,7 @@ export interface Articulos {
 })
 export class TopisimoService {
 
-  baseUrl = 'https://topisimocrochet.com/'
+  baseUrl = 'https://localhost:44388/'
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
   };
