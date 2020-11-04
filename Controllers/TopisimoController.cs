@@ -167,6 +167,10 @@ namespace Topisimo.Controllers
 
                 using (SmtpClient smtpClient = new SmtpClient())
                 {
+                    SentrySdk.CaptureMessage(_notificationMetadata.SmtpServer);
+                    SentrySdk.CaptureMessage(_notificationMetadata.Port.ToString());
+                    SentrySdk.CaptureMessage(_notificationMetadata.UserName);
+                    SentrySdk.CaptureMessage(_notificationMetadata.Password);
                     await smtpClient.ConnectAsync(_notificationMetadata.SmtpServer,
                     _notificationMetadata.Port, true);
                     await smtpClient.AuthenticateAsync(_notificationMetadata.UserName,
