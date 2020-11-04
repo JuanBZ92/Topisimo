@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MimeKit;
+using Sentry;
 using Topisimo.DTO;
 using Topisimo.Models;
 
@@ -154,22 +155,29 @@ namespace Topisimo.Controllers
         [HttpPost("sendemail")]
         public async Task SendEmail(QuieroProducto quiero)
         {
-            EmailMessage message = new EmailMessage();
-            message.Content = "Hola, soy " + quiero.Nombre + ", me interesa el modelo " + quiero.Modelo + " " + quiero.Anio + " con las medidas : " + quiero.Talle + " / " + quiero.Taza + ". Mi contacto es : " + quiero.Email + " / " + quiero.Telefono;
-            message.Reciever = new MailboxAddress("Self", _notificationMetadata.Reciever); ;
-            message.Sender = new MailboxAddress("Self", _notificationMetadata.Sender); ;
-            message.Subject = "Quiero el modelo " + quiero.Modelo + " " + quiero.Anio;
-
-            var mimeMessage = CreateMimeMessageFromEmailMessage(message);
-
-            using (SmtpClient smtpClient = new SmtpClient())
+            try
             {
-                await smtpClient.ConnectAsync(_notificationMetadata.SmtpServer,
-                _notificationMetadata.Port, true);
-                await smtpClient.AuthenticateAsync(_notificationMetadata.UserName,
-                _notificationMetadata.Password);
-                await smtpClient.SendAsync(mimeMessage);
-                await smtpClient.DisconnectAsync(true);
+                EmailMessage message = new EmailMessage();
+                message.Content = "Hola, soy " + quiero.Nombre + ", me interesa el modelo " + quiero.Modelo + " " + quiero.Anio + " con las medidas : " + quiero.Talle + " / " + quiero.Taza + ". Mi contacto es : " + quiero.Email + " / " + quiero.Telefono;
+                message.Reciever = new MailboxAddress("Self", _notificationMetadata.Reciever);
+                message.Sender = new MailboxAddress("Self", _notificationMetadata.Sender);
+                message.Subject = "Quiero el modelo " + quiero.Modelo + " " + quiero.Anio;
+
+                var mimeMessage = CreateMimeMessageFromEmailMessage(message);
+
+                using (SmtpClient smtpClient = new SmtpClient())
+                {
+                    await smtpClient.ConnectAsync(_notificationMetadata.SmtpServer,
+                    _notificationMetadata.Port, true);
+                    await smtpClient.AuthenticateAsync(_notificationMetadata.UserName,
+                    _notificationMetadata.Password);
+                    await smtpClient.SendAsync(mimeMessage);
+                    await smtpClient.DisconnectAsync(true);
+                }
+            }
+            catch (Exception err)
+            {
+                SentrySdk.CaptureException(err);
             }
         }
 

@@ -20,6 +20,7 @@ namespace Topisimo
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseSentry("https://2a92812286664dd18d6a29b2cb28c628@o471548.ingest.sentry.io/5503721");
                     webBuilder.UseStartup<Startup>();
                 });
     }
