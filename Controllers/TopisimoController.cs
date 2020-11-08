@@ -138,7 +138,8 @@ namespace Topisimo.Controllers
         [HttpPost]
         public async Task<ActionResult<Pedidos>> PostPedidos(Pedidos pedidos)
         {
-            _context.Pedidos.Add(pedidos);
+            var test = _context.Pedidos.Add(pedidos);
+            await _context.SaveChangesAsync();
             Estadisticas estadisticas = new Estadisticas
             {
                 Id = 0,
@@ -158,10 +159,10 @@ namespace Topisimo.Controllers
             try
             {
                 EmailMessage message = new EmailMessage();
-                message.Content = "Hola, soy " + quiero.Nombre + ", me interesa el modelo " + quiero.Modelo + " " + quiero.Anio + " con las medidas : " + quiero.Talle + " / " + quiero.Taza + ". Mi contacto es : " + quiero.Email + " / " + quiero.Telefono;
+                message.Content = $"Hola, soy {quiero.Nombre}, me interesa el modelo {quiero.Modelo} {quiero.Anio} con las medidas : {quiero.Talle} / {quiero.Taza}. Mi contacto es : {quiero.Email} / {quiero.Telefono}";
                 message.Reciever = new MailboxAddress("Self", _notificationMetadata.Reciever);
                 message.Sender = new MailboxAddress("Self", _notificationMetadata.Sender);
-                message.Subject = "Quiero el modelo " + quiero.Modelo + " " + quiero.Anio;
+                message.Subject = $"Quiero el modelo {quiero.Modelo} {quiero.Anio}";
 
                 var mimeMessage = CreateMimeMessageFromEmailMessage(message);
 

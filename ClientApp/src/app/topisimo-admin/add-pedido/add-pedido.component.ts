@@ -21,10 +21,10 @@ export class AddPedidoComponent implements OnInit {
     private _modalService: NgbModal,
     public activeModal: NgbActiveModal,
     private topisimoService: TopisimoService
-  ) { 
+  ) {
     this.estados = [
-      {value: 1, viewValue: 'No Pagado'},
-      {value: 2, viewValue: 'Pagado'},
+      { value: 1, viewValue: 'No Pagado' },
+      { value: 2, viewValue: 'Pagado' },
     ];
     this._createForm();
   }
@@ -59,13 +59,13 @@ export class AddPedidoComponent implements OnInit {
       cliente: this.agregarPedidoForm.controls['cliente'].value,
       modelo: this.agregarPedidoForm.controls['modelo'].value,
       color: this.agregarPedidoForm.controls['color'].value,
-      peso: this.agregarPedidoForm.controls['peso'].value,
-      costo: this.agregarPedidoForm.controls['costo'].value,
+      peso: +this.agregarPedidoForm.controls['peso'].value ? +this.agregarPedidoForm.controls['peso'].value : 0,
+      costo: this.agregarPedidoForm.controls['costo'].value ? +this.agregarPedidoForm.controls['costo'].value : 0,
       busto: this.agregarPedidoForm.controls['busto'].value ? +this.agregarPedidoForm.controls['busto'].value : 0,
-      bajoBusto: this.agregarPedidoForm.controls['bajoBusto'].value? +this.agregarPedidoForm.controls['bajoBusto'].value : 0,
-      tasa: this.agregarPedidoForm.controls['tasa'].value? +this.agregarPedidoForm.controls['tasa'].value : 0,
-      cintura: this.agregarPedidoForm.controls['cintura'].value? +this.agregarPedidoForm.controls['cintura'].value : 0,
-      precio: this.agregarPedidoForm.controls['precio'].value? +this.agregarPedidoForm.controls['precio'].value : 0,
+      bajoBusto: this.agregarPedidoForm.controls['bajoBusto'].value ? +this.agregarPedidoForm.controls['bajoBusto'].value : 0,
+      tasa: this.agregarPedidoForm.controls['tasa'].value ? +this.agregarPedidoForm.controls['tasa'].value : 0,
+      cintura: this.agregarPedidoForm.controls['cintura'].value ? +this.agregarPedidoForm.controls['cintura'].value : 0,
+      precio: this.agregarPedidoForm.controls['precio'].value ? +this.agregarPedidoForm.controls['precio'].value : 0,
       estado: this.agregarPedidoForm.controls['estado'].value,
       notas: this.agregarPedidoForm.controls['notas'].value,
     };

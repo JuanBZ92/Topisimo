@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { DatosClientes } from '../topisimo-admin/table-datos-clientes/table-datos-clientes.component';
 import { Estadisticas } from '../topisimo-admin/table-estadisticas/table-estadisticas.component';
@@ -20,7 +20,7 @@ export interface Articulos {
   providedIn: 'root'
 })
 export class TopisimoService {
-
+  admin = new BehaviorSubject<boolean>(false);
   baseUrl = 'https://topisimocrochet.com/'
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })

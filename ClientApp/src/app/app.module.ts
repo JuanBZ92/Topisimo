@@ -31,6 +31,7 @@ import { TopisimoTiendaModule } from './topisimo-tienda/topisimo-tienda.module';
 import {GalleriaModule} from 'primeng/galleria';
 import { GalleriaDetailComponent } from './topisimo-tienda/galleria-detail/galleria-detail.component';
 import { QuieroProductoComponent } from './topisimo-tienda/quiero-producto/quiero-producto.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { QuieroProductoComponent } from './topisimo-tienda/quiero-producto/quier
     ModalComponent,
     AddPedidoComponent,
     QuieroProductoComponent,
-    GaleriaComponent
+    GaleriaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -62,6 +64,7 @@ import { QuieroProductoComponent } from './topisimo-tienda/quiero-producto/quier
       { path: 'temporada', component: TemporadaComponent },
       { path: 'ofertas', component: PromocionesComponent },
       { path: 'accesorios', component: AccesoriosComponent },
+      { path: 'login', component: LoginComponent },
     ]),
     NgbModule,
     MatTableModule,
