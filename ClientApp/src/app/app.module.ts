@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TablePedidosComponent } from './topisimo-admin/table-pedidos/table-pedidos.component';
 import { MatTableModule } from '@angular/material/table';
@@ -36,7 +35,6 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
     TableEstadisticasComponent,
     TableDatosClientesComponent,
     TablePedidosComponent,
