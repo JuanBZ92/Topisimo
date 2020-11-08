@@ -32,7 +32,6 @@ export interface QuieroProducto {
 export class GalleriaDetailComponent implements OnInit, AfterViewInit {
   @ViewChild('modal', { static: false }) modal: ModalComponent;
 
-  @Output() quieroProductoModal = new EventEmitter<QuieroProducto>();
   @Input() imagesPosta: Productos[];
   images: string[] = [944, 1011, 984, 983, 985, 1012, 1013].map(n => `https://picsum.photos/id/${n}/900/500`);
   data: any = [];

@@ -25,12 +25,5 @@ export class TemporadaComponent implements OnInit {
   ngOnInit() {
   }
 
-  quieroProductoModal(event: QuieroProducto) {
-    this.modal.abrirAgregarPedido();
-  }
-
-  quieroProducto() {
-
-  }
 
 }
