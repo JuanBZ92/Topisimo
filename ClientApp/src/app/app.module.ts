@@ -24,7 +24,6 @@ import { AddPedidoComponent } from './topisimo-admin/add-pedido/add-pedido.compo
 import { MatInputModule, MatSelectModule } from '@angular/material';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { TemporadaComponent } from './topisimo-tienda/temporada/temporada.component';
-import { PromocionesComponent } from './topisimo-tienda/promociones/promociones.component';
 import { AccesoriosComponent } from './topisimo-tienda/accesorios/accesorios.component';
 import { TopisimoAdminModule } from './topisimo-admin/topisimo-admin.module';
 import { TopisimoTiendaModule } from './topisimo-tienda/topisimo-tienda.module';
@@ -62,7 +61,6 @@ import { LoginComponent } from './login/login.component';
       { path: 'estadisticas', component: TableEstadisticasComponent },
       { path: 'datos', component: TableDatosClientesComponent },
       { path: 'temporada', component: TemporadaComponent },
-      { path: 'ofertas', component: PromocionesComponent },
       { path: 'accesorios', component: AccesoriosComponent },
       { path: 'login', component: LoginComponent },
     ]),
